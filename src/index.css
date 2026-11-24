@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+html,
+body {
+  background-color: #F2F4F6;
+  color: #191F28;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(49, 130, 246, 0.16);
+  color: #191F28;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@utility px-safe {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
