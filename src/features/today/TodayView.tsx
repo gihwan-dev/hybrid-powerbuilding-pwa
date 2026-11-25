@@ -262,7 +262,7 @@ export function TodayView({ onOpenSettings }: TodayViewProps) {
     <main className="mx-auto w-full max-w-md space-y-4 px-4 pt-[calc(0.75rem+env(safe-area-inset-top,0px))] pb-[calc(6.5rem+env(safe-area-inset-bottom,0px))]">
       <header className="flex items-center justify-between gap-2">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <span className="inline-flex min-h-8 items-center rounded-full bg-white px-3 py-1 text-[13px] font-bold text-[#191F28] shadow-[0_1px_2px_rgba(15,23,42,0.04)] tabular-nums">
+          <span className="inline-flex min-h-8 shrink-0 items-center whitespace-nowrap rounded-full bg-white px-3 py-1 text-[13px] font-bold text-[#191F28] shadow-[0_1px_2px_rgba(15,23,42,0.04)] tabular-nums">
             {currentCycleWeek === 6
               ? '6주차 디로딩 주간'
               : `${currentCycleWeek}주차 (6주 주기)`}
@@ -272,7 +272,7 @@ export function TodayView({ onOpenSettings }: TodayViewProps) {
             <button
               type="button"
               onClick={() => setIsDemoResetSheetOpen(true)}
-              className="inline-flex min-h-12 cursor-pointer items-center rounded-full bg-[#E8F3FF] px-3 text-[13px] font-semibold text-[#1B64DA] hover:bg-[#D5E8FF] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+              className="inline-flex min-h-12 shrink-0 cursor-pointer items-center whitespace-nowrap rounded-full bg-[#E8F3FF] px-3 text-[13px] font-semibold text-[#1B64DA] hover:bg-[#D5E8FF] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
             >
               체험 데이터
             </button>
@@ -328,7 +328,7 @@ export function TodayView({ onOpenSettings }: TodayViewProps) {
               {dayDef.fullLabel} {dayDef.title}
             </h1>
             {isPreviewingOtherDay ? (
-              <span className="inline-flex items-center rounded-full bg-[#F2F4F6] px-2.5 py-1 text-[12px] font-semibold text-[#4E5968]">
+              <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-[#F2F4F6] px-2.5 py-1 text-[12px] font-semibold text-[#4E5968]">
                 미리보기 날짜
               </span>
             ) : null}
@@ -344,7 +344,7 @@ export function TodayView({ onOpenSettings }: TodayViewProps) {
           </p>
           <div>
             <span
-              className={`inline-flex items-center rounded-full px-3 py-1 text-[12px] font-bold tabular-nums ${statusPillClass}`}
+              className={`inline-flex items-center whitespace-nowrap rounded-full px-3 py-1 text-[12px] font-bold tabular-nums ${statusPillClass}`}
             >
               {statusPillLabel}
             </span>
@@ -352,14 +352,14 @@ export function TodayView({ onOpenSettings }: TodayViewProps) {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#F2F4F6] pt-4">
-          <span className="text-[13px] font-semibold text-[#6B7684] tabular-nums">
+          <span className="whitespace-nowrap text-[13px] font-semibold text-[#6B7684] tabular-nums">
             {dayDef.type === 'rest'
               ? '수면 및 영양 관리'
               : `예상 시간 약 ${estimatedMinutes}분`}
           </span>
 
           <span
-            className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[12px] font-bold tabular-nums ${cnsStyle.container}`}
+            className={`inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1 text-[12px] font-bold tabular-nums ${cnsStyle.container}`}
           >
             <span
               aria-hidden="true"

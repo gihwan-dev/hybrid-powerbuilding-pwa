@@ -206,7 +206,7 @@ export function SettingsDrawer({
         <section className="space-y-3 pb-5">
           <div className="flex items-center justify-between gap-2">
             <h3 className="text-[16px] font-bold text-[#191F28]">데이터 모드</h3>
-            <span className="inline-flex items-center rounded-full bg-[#E8F3FF] px-3 py-1 text-[12px] font-bold text-[#1B64DA]">
+            <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-[#E8F3FF] px-3 py-1 text-[12px] font-bold text-[#1B64DA]">
               {isDemoMode ? '체험 데이터 사용 중' : '내 실전 기록 모드'}
             </span>
           </div>
@@ -261,7 +261,7 @@ export function SettingsDrawer({
             <h3 className="text-[16px] font-bold text-[#191F28]">
               주기화 주차 관리
             </h3>
-            <span className="text-[13px] font-semibold text-[#6B7684] tabular-nums">
+            <span className="shrink-0 whitespace-nowrap text-[13px] font-semibold text-[#6B7684] tabular-nums">
               현재 {currentCycleWeek}주차
             </span>
           </div>
@@ -279,7 +279,7 @@ export function SettingsDrawer({
                     setCycleWeek(week);
                     showToast(`${label}로 변경했어요`);
                   }}
-                  className={`min-h-12 min-w-12 cursor-pointer rounded-[14px] px-2 text-[14px] font-bold tabular-nums active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
+                  className={`min-h-12 min-w-0 cursor-pointer whitespace-nowrap rounded-[14px] px-1.5 text-[13px] font-bold min-[380px]:px-2 min-[380px]:text-[14px] tabular-nums active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
                     isSelected
                       ? 'bg-[#1B64DA] text-white hover:bg-[#1552B8]'
                       : 'bg-[#F2F4F6] text-[#4E5968] hover:bg-[#E5E8EB]'

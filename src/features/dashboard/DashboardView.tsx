@@ -88,7 +88,7 @@ export function DashboardView({ onOpenSettings }: DashboardViewProps) {
             <button
               type="button"
               onClick={() => setIsDemoResetSheetOpen(true)}
-              className="inline-flex min-h-12 cursor-pointer items-center rounded-full bg-[#E8F3FF] px-3 text-[13px] font-semibold text-[#1B64DA] hover:bg-[#D5E8FF] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+              className="inline-flex min-h-12 shrink-0 cursor-pointer items-center whitespace-nowrap rounded-full bg-[#E8F3FF] px-3 text-[13px] font-semibold text-[#1B64DA] hover:bg-[#D5E8FF] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
             >
               체험 데이터
             </button>
@@ -107,7 +107,7 @@ export function DashboardView({ onOpenSettings }: DashboardViewProps) {
 
       <section
         aria-label="12주 1RM 성장 전망"
-        className="rounded-[24px] bg-white p-6 shadow-[0_1px_3px_rgba(15,23,42,0.04)] space-y-5"
+        className="rounded-[24px] bg-white p-5 min-[380px]:p-6 shadow-[0_1px_3px_rgba(15,23,42,0.04)] space-y-5"
       >
         <div className="space-y-1.5">
           <p className="text-[14px] font-semibold text-[#6B7684]">
@@ -135,20 +135,26 @@ export function DashboardView({ onOpenSettings }: DashboardViewProps) {
 
         <div className="grid grid-cols-3 divide-x divide-[#F2F4F6] border-t border-[#F2F4F6] pt-4">
           <div className="pr-2 tabular-nums">
-            <p className="text-[12px] font-semibold text-[#6B7684]">4주 후</p>
-            <p className="mt-1 text-[16px] font-bold text-[#191F28]">
+            <p className="whitespace-nowrap text-[12px] font-semibold text-[#6B7684]">
+              4주 후
+            </p>
+            <p className="mt-1 whitespace-nowrap text-[15px] min-[380px]:text-[16px] font-bold text-[#191F28]">
               {activeSeries.week4Kg}kg
             </p>
           </div>
           <div className="px-2 text-center tabular-nums">
-            <p className="text-[12px] font-semibold text-[#6B7684]">8주 후</p>
-            <p className="mt-1 text-[16px] font-bold text-[#191F28]">
+            <p className="whitespace-nowrap text-[12px] font-semibold text-[#6B7684]">
+              8주 후
+            </p>
+            <p className="mt-1 whitespace-nowrap text-[15px] min-[380px]:text-[16px] font-bold text-[#191F28]">
               {activeSeries.week8Kg}kg
             </p>
           </div>
           <div className="pl-2 text-right tabular-nums">
-            <p className="text-[12px] font-semibold text-[#6B7684]">12주 후</p>
-            <p className="mt-1 text-[16px] font-bold text-[#1B64DA]">
+            <p className="whitespace-nowrap text-[12px] font-semibold text-[#6B7684]">
+              12주 후
+            </p>
+            <p className="mt-1 whitespace-nowrap text-[15px] min-[380px]:text-[16px] font-bold text-[#1B64DA]">
               {activeSeries.week12Kg}kg
             </p>
           </div>

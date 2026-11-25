@@ -55,23 +55,23 @@ export function WorkoutSessionOverlay() {
       aria-label={`${activeSession.title} 진행 화면`}
       className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-[#F2F4F6] text-[#191F28] pt-[env(safe-area-inset-top,0px)] pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]"
     >
-      <header className="mx-auto flex w-full max-w-md items-center justify-between gap-2 px-4 pt-3 pb-2">
+      <header className="mx-auto flex w-full max-w-md items-center justify-between gap-1 px-4 pt-3 pb-2">
         <button
           type="button"
           onClick={pauseWorkout}
-          className="inline-flex min-h-12 cursor-pointer items-center gap-1.5 rounded-[14px] px-3 text-[14px] font-semibold text-[#4E5968] hover:bg-white/80 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+          className="inline-flex min-h-12 shrink-0 cursor-pointer items-center gap-1 whitespace-nowrap rounded-[14px] px-2 text-[13px] font-semibold text-[#4E5968] min-[380px]:gap-1.5 min-[380px]:px-3 min-[380px]:text-[14px] hover:bg-white/80 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
         >
           <Pause className="h-4 w-4 shrink-0" aria-hidden="true" />
           <span>잠시 멈추기</span>
         </button>
 
-        <div className="flex flex-col items-center text-center">
-          <span className="text-[14px] font-bold text-[#191F28] tabular-nums">
+        <div className="flex min-w-0 flex-col items-center text-center">
+          <span className="whitespace-nowrap text-[14px] font-bold text-[#191F28] tabular-nums">
             {completedOrSkippedSets} / {totalSets} 세트
           </span>
-          <span className="inline-flex items-center gap-1 text-[12px] font-medium text-[#4E5968]">
+          <span className="inline-flex items-center gap-1 whitespace-nowrap text-[12px] font-medium text-[#4E5968]">
             <Sun
-              className={`h-3.5 w-3.5 ${
+              className={`h-3.5 w-3.5 shrink-0 ${
                 isWakeLockActive ? 'text-[#027A48]' : 'text-[#4E5968]'
               }`}
               aria-hidden="true"
@@ -83,7 +83,7 @@ export function WorkoutSessionOverlay() {
         <button
           type="button"
           onClick={() => setIsJumpOpen(true)}
-          className="inline-flex min-h-12 cursor-pointer items-center gap-1.5 rounded-[14px] px-3 text-[14px] font-semibold text-[#1B64DA] hover:bg-white/80 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+          className="inline-flex min-h-12 shrink-0 cursor-pointer items-center gap-1 whitespace-nowrap rounded-[14px] px-2 text-[13px] font-semibold text-[#1B64DA] min-[380px]:gap-1.5 min-[380px]:px-3 min-[380px]:text-[14px] hover:bg-white/80 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
         >
           <ListOrdered className="h-4 w-4 shrink-0" aria-hidden="true" />
           <span>전체 목록</span>

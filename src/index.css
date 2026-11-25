@@ -9,6 +9,8 @@ body {
   background-color: #F2F4F6;
   color: #191F28;
   font-family: var(--font-sans);
+  word-break: keep-all;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

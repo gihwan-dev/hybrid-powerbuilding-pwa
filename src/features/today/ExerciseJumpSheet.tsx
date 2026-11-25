@@ -61,9 +61,9 @@ export function ExerciseJumpSheet({ open, onClose }: ExerciseJumpSheetProps) {
                           triggerTapHaptic();
                           swapExerciseAlternative(exIdx);
                         }}
-                        className="inline-flex min-h-12 cursor-pointer items-center gap-1 rounded-[12px] bg-[#F2F4F6] px-3 text-[13px] font-semibold text-[#1B64DA] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+                        className="inline-flex min-h-12 cursor-pointer items-center gap-1 whitespace-nowrap rounded-[12px] bg-[#F2F4F6] px-3 text-[13px] font-semibold text-[#1B64DA] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
                       >
-                        <ArrowLeftRight className="h-3.5 w-3.5" aria-hidden="true" />
+                        <ArrowLeftRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                         <span>대체 동작</span>
                       </button>
                     ) : null}
@@ -74,9 +74,9 @@ export function ExerciseJumpSheet({ open, onClose }: ExerciseJumpSheetProps) {
                         triggerTapHaptic();
                         addExtraSet(exIdx);
                       }}
-                      className="inline-flex min-h-12 cursor-pointer items-center gap-1 rounded-[12px] bg-[#F2F4F6] px-3 text-[13px] font-semibold text-[#4E5968] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+                      className="inline-flex min-h-12 cursor-pointer items-center gap-1 whitespace-nowrap rounded-[12px] bg-[#F2F4F6] px-3 text-[13px] font-semibold text-[#4E5968] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
                     >
-                      <Plus className="h-3.5 w-3.5" aria-hidden="true" />
+                      <Plus className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                       <span>세트 추가</span>
                     </button>
                   </div>
@@ -111,7 +111,7 @@ export function ExerciseJumpSheet({ open, onClose }: ExerciseJumpSheetProps) {
                           jumpToSet(exIdx, sIdx);
                           onClose();
                         }}
-                        className={`min-h-12 cursor-pointer rounded-[12px] px-3 py-2 text-[13px] font-semibold tabular-nums active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${chipStyle}`}
+                        className={`min-h-12 cursor-pointer whitespace-nowrap rounded-[12px] px-3 py-2 text-[13px] font-semibold tabular-nums active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${chipStyle}`}
                       >
                         {set.setNumber}세트 {statusLabel}
                       </button>

@@ -186,8 +186,8 @@ export default function App() {
                         : 'text-[#4E5968] hover:text-[#191F28]'
                     }`}
                   >
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                    <span>{label}</span>
+                    <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                    <span className="whitespace-nowrap">{label}</span>
                   </button>
                 );
               })}

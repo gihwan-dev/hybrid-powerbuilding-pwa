@@ -82,7 +82,7 @@ export function SegmentedTabs<T extends string>({
             tabIndex={isSelected ? 0 : -1}
             onClick={() => onChange(option.value)}
             onKeyDown={(event) => handleKeyDown(event, index)}
-            className={`min-h-12 cursor-pointer rounded-[12px] px-3 text-[15px] font-semibold active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
+            className={`min-h-12 cursor-pointer whitespace-nowrap rounded-[12px] px-1 text-[13px] font-semibold min-[380px]:px-2.5 min-[380px]:text-[14px] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
               isSelected
                 ? 'bg-white text-[#191F28] shadow-[0_1px_2px_rgba(15,23,42,0.06)]'
                 : 'text-[#4E5968] hover:text-[#191F28]'

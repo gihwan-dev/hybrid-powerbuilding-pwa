@@ -126,12 +126,12 @@ jobs:
           name: power-hybrid-release-apk
           path: power-hybrid-release.apk
 
-      - name: Publish APK to GitHub Release v1.0.0
+      - name: Publish APK to GitHub Release v1.0.1
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.0
-          name: 리프트로그 v1.0.0
-          body: Galaxy Z Flip 7 및 Android 기기용 서명 완료 설치 파일(APK)이에요.
+          tag_name: v1.0.1
+          name: 리프트로그 v1.0.1
+          body: Galaxy Z Flip 7 및 좁은 화면 탭 줄바꿈이 개선된 서명 완료 설치 파일(APK)이에요.
           draft: false
           prerelease: false
           fail_on_unmatched_files: true

@@ -228,17 +228,17 @@ export function E1rmForecastChart({ summary }: E1rmForecastChartProps) {
           aria-live="polite"
           className="flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5 rounded-[14px] bg-[#F2F4F6] px-3.5 py-2.5 text-[13px] font-semibold text-[#191F28] tabular-nums"
         >
-          <span>
+          <span className="whitespace-nowrap">
             {selectedPoint.weekOffset === 0
               ? `선택 시점: 현재${selectedPoint.isDeloadWeek ? ' (디로드)' : ''}`
               : `선택 시점: ${selectedPoint.weekOffset}주 후${selectedPoint.isDeloadWeek ? ' (디로드)' : ''}`}
           </span>
           {selectedPoint.weekOffset === 0 ? (
-            <span className="font-bold text-[#1B64DA]">
+            <span className="whitespace-nowrap font-bold text-[#1B64DA]">
               현재 {selectedPoint.projectedKg}kg
             </span>
           ) : (
-            <span className="font-bold text-[#1B64DA]">
+            <span className="whitespace-nowrap font-bold text-[#1B64DA]">
               예상 {selectedPoint.projectedKg}kg{' '}
               <span className="font-medium text-[#4E5968]">
                 ({selectedPoint.lowerBoundKg}~{selectedPoint.upperBoundKg}kg)
@@ -435,7 +435,7 @@ export function E1rmForecastChart({ summary }: E1rmForecastChartProps) {
               type="button"
               aria-pressed={isActive}
               onClick={() => setSelectedWeekOffset(item.offset)}
-              className={`min-h-12 min-w-12 cursor-pointer rounded-[14px] px-2 text-[13px] font-bold tabular-nums active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
+              className={`min-h-12 min-w-0 cursor-pointer whitespace-nowrap rounded-[14px] px-1.5 text-[13px] font-bold tabular-nums active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
                 isActive
                   ? 'bg-[#1B64DA] text-white hover:bg-[#1552B8]'
                   : 'bg-[#F2F4F6] text-[#4E5968] hover:bg-[#E5E8EB]'

@@ -11,7 +11,9 @@ const PREVIEW_PORT = 4173;
 const BASE_URL = `http://127.0.0.1:${PREVIEW_PORT}/`;
 
 const VIEWPORTS = [
-  { name: '360x800', width: 360, height: 800, capture: false },
+  { name: '320x800', width: 320, height: 800, capture: false },
+  { name: '344x800', width: 344, height: 800, capture: false },
+  { name: '360x800', width: 360, height: 800, capture: true },
   { name: '390x844', width: 390, height: 844, capture: false },
   { name: '412x960', width: 412, height: 960, capture: true },
   { name: '361x399', width: 361, height: 399, capture: true },
@@ -39,6 +41,41 @@ async function assertNoHorizontalOverflow(page, label, viewportName) {
   if (metrics.scrollWidth > metrics.innerWidth) {
     throw new Error(
       `[${viewportName}] Horizontal overflow on ${label}: scrollWidth=${metrics.scrollWidth} > innerWidth=${metrics.innerWidth}`,
+    );
+  }
+}
+
+async function assertSingleLineElements(page, selector, label, viewportName) {
+  const failures = await page.evaluate((sel) => {
+    const wrapped = [];
+    for (const el of document.querySelectorAll(sel)) {
+      const style = getComputedStyle(el);
+      if (style.display === 'none' || style.visibility === 'hidden') continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) continue;
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const rects = Array.from(range.getClientRects()).filter(
+        (r) => r.width > 1 && r.height > 1,
+      );
+      const rows = [];
+      for (const r of rects) {
+        if (!rows.some((y) => Math.abs(y - r.top) < 6)) rows.push(r.top);
+      }
+      if (rows.length > 1) {
+        wrapped.push({
+          text: (el.textContent || '').replace(/\s+/g, ' ').trim(),
+          rows: rows.length,
+          width: Math.round(rect.width),
+        });
+      }
+    }
+    return wrapped;
+  }, selector);
+
+  if (failures.length > 0) {
+    throw new Error(
+      `[${viewportName}] Multi-line wrap detected on ${label}: ${JSON.stringify(failures)}`,
     );
   }
 }
@@ -151,6 +188,12 @@ async function main() {
         await startButton.click();
         await page.waitForSelector('[aria-label$="진행 화면"]');
         await assertNoHorizontalOverflow(page, 'Workout SetCard', vp.name);
+        await assertSingleLineElements(
+          page,
+          '[aria-label$="진행 화면"] header button span',
+          'Workout Header Buttons',
+          vp.name,
+        );
 
         if (vp.capture && vp.name === '412x960') {
           await page.screenshot({
@@ -210,7 +253,30 @@ async function main() {
         await page.getByRole('heading', { name: '대시보드' }).waitFor({ state: 'visible' });
         await page.getByRole('button', { name: '12주' }).click();
         await assertNoHorizontalOverflow(page, 'DashboardView', vp.name);
+        await assertSingleLineElements(
+          page,
+          '[role="tablist"] [role="tab"]',
+          'Dashboard Lift SegmentedTabs',
+          vp.name,
+        );
+        await assertSingleLineElements(
+          page,
+          'nav[aria-label="주요 메뉴"] button span',
+          'Bottom Nav Tabs',
+          vp.name,
+        );
+        await assertSingleLineElements(
+          page,
+          '[aria-label="12주 1RM 성장 전망"] .grid-cols-4 button',
+          'Forecast Quick Week Buttons',
+          vp.name,
+        );
 
+        if (vp.capture && vp.name === '360x800') {
+          await page.screenshot({
+            path: resolve(SCREENSHOT_DIR, 'dashboard-tabs-360x800.png'),
+          });
+        }
         if (vp.capture && vp.name === '412x960') {
           await page.screenshot({
             path: resolve(SCREENSHOT_DIR, 'dashboard-412x960.png'),
@@ -227,6 +293,12 @@ async function main() {
         await page.getByRole('button', { name: 'F45 피로도 관리' }).click();
         await page.getByRole('button', { name: /프롬프트 미리보기/ }).click();
         await assertNoHorizontalOverflow(page, 'CoachView', vp.name);
+        await assertSingleLineElements(
+          page,
+          'a[href^="https://claude.ai"], a[href^="https://gemini.google.com"]',
+          'Coach External Links',
+          vp.name,
+        );
 
         if (vp.capture && vp.name === '412x960') {
           await page.screenshot({
@@ -243,6 +315,12 @@ async function main() {
         await settingsDialog.waitFor({ state: 'visible' });
         await page.waitForTimeout(320);
         await assertNoHorizontalOverflow(page, 'SettingsDrawer', vp.name);
+        await assertSingleLineElements(
+          page,
+          '[role="dialog"][aria-label="설정 및 데이터 관리"] .grid-cols-3 button',
+          'Settings Cycle Week Buttons',
+          vp.name,
+        );
 
         if (vp.capture && vp.name === '412x960') {
           await page.screenshot({

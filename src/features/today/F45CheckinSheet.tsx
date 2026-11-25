@@ -29,7 +29,7 @@ const IMPACT_OPTIONS: readonly {
 }[] = [
   { value: 'low', label: '낮음', helper: '하체 부담 적음' },
   { value: 'medium', label: '보통', helper: '전신 고르게' },
-  { value: 'high', label: '높음', helper: '스쿼트/런지 다수' },
+  { value: 'high', label: '높음', helper: '하체 부담 많음' },
 ];
 
 function resolveInitialTitle(
@@ -110,7 +110,7 @@ export function F45CheckinSheet({
                     triggerTapHaptic();
                     setClassTitle(preset.title);
                   }}
-                  className={`min-h-12 cursor-pointer rounded-[14px] px-3 text-[14px] font-semibold active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
+                  className={`min-h-12 cursor-pointer whitespace-nowrap rounded-[14px] px-3 text-[14px] font-semibold active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
                     isSelected
                       ? 'bg-[#1B64DA] text-white'
                       : 'bg-[#F2F4F6] text-[#191F28] hover:bg-[#E5E8EB]'
@@ -173,15 +173,17 @@ export function F45CheckinSheet({
                     triggerTapHaptic();
                     setLowerBodyImpact(option.value);
                   }}
-                  className={`flex min-h-[56px] cursor-pointer flex-col items-center justify-center rounded-[14px] px-2 py-2 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
+                  className={`flex min-h-[56px] cursor-pointer flex-col items-center justify-center rounded-[14px] px-1.5 py-2 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
                     isSelected
                       ? 'bg-[#1B64DA] text-white'
                       : 'bg-[#F2F4F6] text-[#191F28] hover:bg-[#E5E8EB]'
                   }`}
                 >
-                  <span className="text-[15px] font-bold">{option.label}</span>
+                  <span className="whitespace-nowrap text-[14px] min-[380px]:text-[15px] font-bold">
+                    {option.label}
+                  </span>
                   <span
-                    className={`mt-0.5 text-[12px] font-medium ${
+                    className={`mt-0.5 whitespace-nowrap text-[11px] min-[380px]:text-[12px] font-medium ${
                       isSelected ? 'text-[#E8F3FF]' : 'text-[#4E5968]'
                     }`}
                   >

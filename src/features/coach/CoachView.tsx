@@ -182,7 +182,7 @@ export function CoachView({ onOpenSettings }: CoachViewProps) {
             <h2 className="text-[17px] font-bold text-[#191F28]">
               어떤 주제로 조언을 받을까요?
             </h2>
-            <span className="text-[12px] font-semibold text-[#6B7684] tabular-nums">
+            <span className="shrink-0 whitespace-nowrap text-[12px] font-semibold text-[#6B7684] tabular-nums">
               {selectedTopics.length}개 선택됨
             </span>
           </div>
@@ -217,7 +217,7 @@ export function CoachView({ onOpenSettings }: CoachViewProps) {
             <h2 className="text-[16px] font-bold text-[#191F28]">
               오늘 몸 상태 메모 추가
             </h2>
-            <span className="text-[12px] font-medium text-[#6B7684]">
+            <span className="shrink-0 whitespace-nowrap text-[12px] font-medium text-[#6B7684]">
               선택 사항
             </span>
           </div>
@@ -231,7 +231,7 @@ export function CoachView({ onOpenSettings }: CoachViewProps) {
                   type="button"
                   aria-pressed={isSelected}
                   onClick={() => handleToggleCondition(tag)}
-                  className={`inline-flex min-h-12 min-w-12 cursor-pointer items-center rounded-full px-4 text-[13px] font-bold active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
+                  className={`inline-flex min-h-12 min-w-12 cursor-pointer items-center whitespace-nowrap rounded-full px-4 text-[13px] font-bold active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
                     isSelected
                       ? 'bg-[#1B64DA] text-white hover:bg-[#1552B8]'
                       : 'bg-[#F2F4F6] text-[#4E5968] hover:bg-[#E5E8EB]'
@@ -292,20 +292,20 @@ export function CoachView({ onOpenSettings }: CoachViewProps) {
             href="https://claude.ai/new"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-12 min-w-12 items-center justify-center gap-1.5 rounded-[14px] bg-[#F2F4F6] px-3 text-[14px] font-bold text-[#191F28] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+            className="inline-flex min-h-12 min-w-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-[14px] bg-[#F2F4F6] px-2.5 text-[13px] font-bold text-[#191F28] min-[380px]:px-3 min-[380px]:text-[14px] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
           >
             <span>Claude 열기</span>
-            <ExternalLink className="h-4 w-4 text-[#4E5968]" aria-hidden="true" />
+            <ExternalLink className="h-4 w-4 shrink-0 text-[#4E5968]" aria-hidden="true" />
           </a>
 
           <a
             href="https://gemini.google.com/app"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-12 min-w-12 items-center justify-center gap-1.5 rounded-[14px] bg-[#F2F4F6] px-3 text-[14px] font-bold text-[#191F28] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+            className="inline-flex min-h-12 min-w-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-[14px] bg-[#F2F4F6] px-2.5 text-[13px] font-bold text-[#191F28] min-[380px]:px-3 min-[380px]:text-[14px] hover:bg-[#E5E8EB] active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
           >
             <span>Gemini 열기</span>
-            <ExternalLink className="h-4 w-4 text-[#4E5968]" aria-hidden="true" />
+            <ExternalLink className="h-4 w-4 shrink-0 text-[#4E5968]" aria-hidden="true" />
           </a>
         </div>
 

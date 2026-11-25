@@ -62,7 +62,7 @@ export function DayStrip({
               onClick={() => onSelectDay(isToday ? null : dayKey)}
               aria-pressed={isSelected}
               aria-label={`${dayDef.fullLabel} ${dayNumber}일${isToday ? ' 오늘' : ''}${isCompleted ? ' 기록 완료' : ''}`}
-              className={`relative flex min-h-[64px] min-w-[48px] cursor-pointer flex-col items-center justify-between rounded-[16px] px-1 py-2 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
+              className={`relative flex min-h-[64px] min-w-0 w-full cursor-pointer flex-col items-center justify-between rounded-[16px] px-1 py-2 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6] ${
                 isSelected
                   ? 'bg-white ring-2 ring-[#3182F6] shadow-[0_1px_3px_rgba(15,23,42,0.06)]'
                   : isToday
@@ -71,7 +71,7 @@ export function DayStrip({
               }`}
             >
               <span
-                className={`text-[12px] font-semibold ${
+                className={`whitespace-nowrap text-[12px] font-semibold ${
                   isSelected || isToday ? 'text-[#1B64DA]' : 'text-[#4E5968]'
                 }`}
               >
@@ -79,7 +79,7 @@ export function DayStrip({
               </span>
 
               <span
-                className={`text-[15px] font-bold tabular-nums ${
+                className={`whitespace-nowrap text-[15px] font-bold tabular-nums ${
                   isSelected ? 'text-[#191F28]' : 'text-[#4E5968]'
                 }`}
               >
@@ -107,7 +107,7 @@ export function DayStrip({
           <button
             type="button"
             onClick={() => onSelectDay(null)}
-            className="inline-flex min-h-12 cursor-pointer items-center rounded-[12px] px-3 text-[14px] font-semibold text-[#1B64DA] hover:bg-white/70 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
+            className="inline-flex min-h-12 cursor-pointer items-center whitespace-nowrap rounded-[12px] px-3 text-[14px] font-semibold text-[#1B64DA] hover:bg-white/70 active:scale-[0.97] transition-transform duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3182F6]"
           >
             오늘로 돌아가기
           </button>

@@ -41,7 +41,7 @@ export function MuscleVolumeCard({
         <h2 className="text-[18px] font-bold tracking-tight text-[#191F28]">
           주간 부위별 볼륨
         </h2>
-        <span className="inline-flex items-center rounded-full bg-[#E8F3FF] px-3 py-1 text-[12px] font-bold text-[#1B64DA] tabular-nums">
+        <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-[#E8F3FF] px-3 py-1 text-[12px] font-bold text-[#1B64DA] tabular-nums">
           {isDeloadWeek ? '5~7세트 디로드 권장' : '10~14세트 권장'}
         </span>
       </div>
@@ -74,10 +74,10 @@ export function MuscleVolumeCard({
               className="space-y-2 py-3.5 first:pt-0 last:pb-0"
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="text-[14px] font-semibold text-[#191F28]">
+                <span className="whitespace-nowrap text-[14px] font-semibold text-[#191F28]">
                   {item.label}
                 </span>
-                <div className="flex items-center gap-2 tabular-nums">
+                <div className="flex shrink-0 items-center gap-2 whitespace-nowrap tabular-nums">
                   <span className="text-[13px] font-semibold text-[#6B7684]">
                     {item.completedSets} / {item.targetMinSets}~
                     {item.targetMaxSets}세트
